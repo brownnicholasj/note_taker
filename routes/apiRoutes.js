@@ -1,4 +1,6 @@
 const noteData = require('../db/db');
+const { appendFile } = require('fs');
+const { json } = require('express');
 
 module.exports = (router) => {
 	router.get('/api/notes', (req, res) => res.json(noteData));
@@ -6,6 +8,7 @@ module.exports = (router) => {
 	router.post('/api/notes', (req, res) => {
 		req.body.id = Date.now();
 		noteData.push(req.body);
+		// appendFile('../db/db', noteData, json);
 		res.end();
 	});
 
