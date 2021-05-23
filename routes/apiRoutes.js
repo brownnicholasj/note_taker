@@ -1,15 +1,23 @@
 const noteData = require('../db/db');
 
-module.exports = (app) => {
-	app.get('/api/notes', (req, res) => res.json(noteData));
+module.exports = (router) => {
+	router.get('/api/notes', (req, res) => res.json(noteData));
 
-	app.post('/api/notes', (req, res) => {
+	router.post('/api/notes', (req, res) => {
+		req.body.id = Date.now();
 		noteData.push(req.body);
 		res.end();
 	});
 
-	app.delete('/api/notes', (req, res) => {
-		console.log(req);
+	router.delete('/api/notes/:id', (req, res) => {
+		const { id } = req.params;
+
+		const indexFind = (element) => element.id == id;
+
+		const idIndex = noteData.findIndex(indexFind);
+
+		noteData.splice(idIndex, 1);
+
 		res.end();
 	});
 };
