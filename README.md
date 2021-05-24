@@ -4,14 +4,16 @@
 
 ## Description
 
-- The application will take user input from Command Line Input (CLI) to generate
-  a HTML page with clickable links to email and github pages. This provides a
-  quick access to these points of information for a team for optimal utilization
-- The technology used for this application are: node, javascript, npm, npm
-  inquirer, npm chalk, npm jest (dev only), fontawesome (html images)
-- The biggest challenge I had was handling the requests for class extension,
-  however once I got a bit of experience with what the program(s) expect, it
-  became a lot clearer
+- This note taking application will allow a user to create and store notes with
+  a title and body. The application stores the information in a database so
+  information an be stored over a period of time, so the user can keep notes for
+  a longer period of time.
+- The technology used for this application are: node, javascript, express (npm),
+  file structure (node), path (node) bootstrap styling, fontawesome (html
+  images)
+- The biggest challenge I had understanding how to handle static files within
+  express. Once I found the required use, everything else seemed to work pretty
+  easily.
 
 ## Table of Contents
 
@@ -19,7 +21,7 @@
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
-- [Tests](#tests)
+- [Demo](#demo)
 - [Questions](#questions)
 
 ## Installation
@@ -32,21 +34,38 @@ npm i
 
 The following dependencies will be installed:
 
-- inquirer
-- chalk
-
-dev dependency
-
-- jest
+- express
 
 ## Usage
 
-A user will run the application and respond to the prompts, based on the input
-received, the program will generate a HTML file that utilizes a directory css to
-show the input in an intuitive, interactive (clickable) webpage.
+A user will go to the
+[website](https://brownnicholasj-note-taker.herokuapp.com/) and click on the
+'Get Started' button. ![usage001](./public/assets/images/usage001.jpg)
 
-A user and/or team will then have quick access to team information along with
-ability to email and/or get to a github repository with one click.
+The user will then be presented with stored notes on the left side and the
+ability to add new notes with a Title and Body section.
+![usage002](./public/assets/images/usage002.jpg)
+
+When the user enters a note title and note text, then a save button will appear
+in the top right. ![usage003](./public/assets/images/usage003.jpg)
+
+When the user clicks the save button, the note will be stored in the database
+and visible on the stored list to the left side of the screen.
+![usage004](./public/assets/images/usage004.jpg)
+
+When a user wants to view the details of a stored note, they can click on the
+note title on the left side. A read only view of the note title and text will be
+visible in the main section of the page
+![usage005](./public/assets/images/usage005.jpg)
+
+When a user wants to add a new note when they have a previous note pulled up (in
+read only view), the user can click the '+' icon in the top right and the main
+section will clear and be eligible for a user to create a title and text
+![usage006](./public/assets/images/usage006.jpg)
+
+WHen a user wants to delete a note, they can press the red trashcan icon on the
+list to the left and the note will be deleted from the database and from the
+list ![usage007](./public/assets/images/usage007.jpg)
 
 ## License
 
@@ -54,82 +73,29 @@ This project is licensed under the MIT license.
 
 ## Contributing
 
-A thanks to the following contributors to this project: Nicholas Brown
-(brownnicholasj.dev@gmail.com)
+A thanks to the following contributors to this project:
 
-## Test
-
-Setup:
-
-1.  run the npm install command to install all dependencies
-
-```
-npm i
-```
-
-Test Plans:
-
-1. <br>
-
-   - Run the below command and walk through the questions answering as desired
-
-   ```
-   node index
-   ```
-
-   - Open the HTML file from the 'dist/' file
-   - Click on one of the email hrefs and verify default email program opens with
-     the clicked email address in the 'To' line
-     - **requires default email to be setup with browser**
-   - Click on one of the github hrefs to be taken to the github profile
-     - **link is "https://github.com/username" - a valid username is required**
-
-1. <br>
-
-   - Run the below command and walk through the questions, ensuring you input 5
-     or more employees
-
-   ```
-   node index
-   ```
-
-   - Open the HTML file from the 'dist/' file
-   - Validate the profiles are wrapped ![test1](./dist/assets/images/test01.jpg)
-
-1. <br>
-
-   - Run the below command to run the unit testing
-
-   ```
-   npm test
-   ```
-
-   - Validate that all unit tests pass ![test2](./dist/assets/images/test02.jpg)
+- 2021 Trilogy Education Services, LLC
+- Nicholas Brown (brownnicholasj.dev@gmail.com)
 
 ## Demo
 
-Click the following link to watch video demo of the application (1m45sec
-runtime)<br> https://youtu.be/6DWQlZiK_Tw
-
-Install required dependencies: <br> ![demo1](./dist/assets/images/demo1.gif)
-
-Run unit tests: <br> ![demo2](./dist/assets/images/demo2.gif)
-
-The input from the user: <br> ![demo3](./dist/assets/images/demo3.gif)
-
-HTML output and clickable links: <br> ![demo4](./dist/assets/images/demo4.gif)
-
-The file structure/organization is setup as: <br>
-![demo5](./dist/assets/images/demo5.jpg)
+Click the following link to watch video demo of the application (43sec
+runtime)<br> https://youtu.be/wBTsdZ2h9fg
 
 ### Behind the Code
 
-- The classes are setup with Employee as the first class and
-  Manager/Engineer/Inter are extensions of the Employee class <br>
-  ![demo6](./dist/assets/images/demo6.jpg)
+- The GET request for /notes will return the user the notes.html and all other
+  requests to the index.html <br> ![btc001](./public/assets/images/btc001.jpg)
 
-- Retrieve the information utilizing the Class modules: <br>
-  ![demo7](./dist/assets/images/demo7.jpg)
+- The GET and POST requests for api/notes will return the database and allow
+  notes to be saved to the db: <br> ![btc002](./public/assets/images/btc002.jpg)
+
+  ![btc003](./public/assets/images/btc003.jpg)
+
+- The saver function within the code is called when a POST or DELETE request
+  comes in and posts (or deletes) the data to the db.json file
+  ![btc004](./public/assets/images/btc004.jpg)
 
 ## Questions
 
