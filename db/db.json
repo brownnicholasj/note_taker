@@ -1,1 +1,12 @@
-[{"title":"Test Title","text":"Test text","id":"1"}]
+[
+    {
+        "title": "Monday",
+        "text": "Mow the grass\nGet teacher appreciation\nUpdate README",
+        "id": 1621854322714
+    },
+    {
+        "title": "Grocery List",
+        "text": "Tomatoes\nKetchup\nSnacks\nBBQ\n",
+        "id": 1621854369219
+    }
+]
