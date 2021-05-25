@@ -97,6 +97,13 @@ runtime)<br> https://youtu.be/wBTsdZ2h9fg
   comes in and posts (or deletes) the data to the db.json file
   ![btc004](./public/assets/images/btc004.jpg)
 
+- The unique identifier is determined by utilizing the date function within
+  Javascript. This will establish a UNIX formatted date as the unique ID, since
+  it inherently counts up with milliseconds, it will serve well as a unique ID
+  creator ![btc005](./public/assets/images/btc005.jpg)
+
+  ![btc006](./public/assets/images/btc006.jpg)
+
 ## Questions
 
 If you have any questions about the repo, open an issue or contact me directly
